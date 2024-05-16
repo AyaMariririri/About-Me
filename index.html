@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['name'])) {
+    header('Location: index.php');
+    exit();
+}
+
+$name = htmlspecialchars($_SESSION['name']);
+$currentDateTime = date('Y-m-d H:i:s');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +65,9 @@
                             <i class="uil uil-estate nav__icon"></i> Contact Me
                         </a>
                     </li>
+                     <li class="nav__item">
+                            <a href="logout.php" class="nav__link">Logout</a>
+                    </li>
                 </ul>
                 <i class="uil uil-times nav__close" id="nav-close"></i>
             </div>
@@ -99,7 +114,7 @@
 
                     </div>
                     <div class="home__data">
-                        <h1 class="home__title">Welcome to my E-Portfolio</h1>
+<h1 class="home__title">Hi <?php echo $name; ?>!, Welcome to my E-Portfolio</h1>
                         <h3 class="home__subtitle">Created by Keisha Marie C. Libre</h3>
                         <p class="home__description">This page is created in fulfillment of the requirements in Technology for Teaching and Learning 2 (MEDTL 221) and submitted to our subject teacher Ms. Marry Ann M. Aclao</p>
                         <a href="#contact" class="home__button button button--flex">
@@ -138,132 +153,7 @@
                 
 
         </section>
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">XXX</h2>
-            <span class="section__subtitle">XXXXXXX</span>
-
-            <div class="skills__container container grid">
-                <div>
-                    <!--====================== SKILLS 1 =============================-->
-                    <div class="skills__content skills__open">
-                        <div class="skills__header">
-                            
-
-                            <div>
-                                <h1 class="skills__title">XX</h1>
-                                <span class="skills__subtitle">XXX</span>
-                            </div>
-
-                
-
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-
-                        <div class="skills__list grid">
-                            
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XX</h3>
-                                    <div class="skills__number">XXX%</div>
-                                </div>
-                              
-                            </div>
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XXX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                                
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--====================== SKILLS 2 =============================-->
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            
-
-                            <div>
-                                <h1 class="skills__title">XXXXXXXXXX XXXXXXX</h1>
-                                <span class="skills__subtitle">XXXXXXXXXXXX</span>
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow"></i>
-                        </div>
-
-                        <div class="skills__list grid">
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XXXXXXXXXXXXXXX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                               
-                            </div>
-                            
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XXXXXXXXX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">XXXXXXXXXXX</h3>
-                                    <div class="skills__number">XX%</div>
-                                </div>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-
-                    <div>
-                        <!--====================== SKILLS 3 =============================-->
-                        <div class="skills__content skills__close">
-                            <div class="skills__header">
-                                
-
-                                <div>
-                                    <h1 class="skills__title">XXXXX</h1>
-                                    <span class="skills__subtitle">XXXXXX</span>
-                                </div>
-
-                                <i class="uil uil-angle-down skills__arrow"></i>
-                            </div>
-
-                            <div class="skills__list grid">
-                                <div class="skills__data">
-                                    <div class="skills__titles">
-                                        <h3 class="skills__name">XX</h3>
-                                        <div class="skills__number">XX%</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </section>
+      
 
         <!--==================== QUALIFICATION ====================-->
         <section class="qualification section">
@@ -348,119 +238,7 @@ Specialization Years: Biology and Agriculture (Crops and Livestock)
 
         </section>
 
-        <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">What I do</span>
-
-            <div class="services__container container grid">
-                <!--===================== SERVICES 1 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-arrow services__icon"></i>
-                        <h3 class="services__title">xxxxxxxxxx <br> xxxx</h3>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </span>
-
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">xxxxxxx <br> xxxx</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxxxxxxxxxxxx.</p>
-                                    </li>
-
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxxxxxxxxxxxxxxxxx.</p>
-                                    </li>
-
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxxxxxxxxxxxxxxx.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--===================== SERVICES 2 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-web-grid services__icon"></i>
-                        <h3 class="services__title">xxxxxxxx <br> xxxx</h3>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </span>
-
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">xxxxx <br> xxxx</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxx</p>
-                                    </li>
-
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxx</p>
-                                    </li>
-
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxx.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--===================== SERVICES 3 ====================-->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-pen services__icon"></i>
-                        <h3 class="services__title">xxxx <br> xxxx</h3>
-
-                        <span class="button button--flex button--small button--link services__button">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </span>
-
-                        <div class="services__modal">
-                            <div class="services__modal-content">
-                                <h4 class="services__modal-title">xxxx <br> xxxx</h4>
-                                <i class="uil uil-times services__modal-close"></i>
-
-                                <ul class="services__modal-services grid">
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxx</p>
-                                    </li>
-
-                                    <li class="services__modal-service">
-                                        <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>xxxxx</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      
 
         <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
@@ -628,6 +406,6 @@ Specialization Years: Biology and Agriculture (Crops and Livestock)
 
     <!--==================== MAIN JS ====================-->
     <script src="assets/js/main.js"></script>
-
+    
 </body>
 </html>
