@@ -1,14 +1,4 @@
-<?php
-session_start();
 
-if (!isset($_SESSION['name'])) {
-    header('Location: index.php');
-    exit();
-}
-
-$name = htmlspecialchars($_SESSION['name']);
-$currentDateTime = date('Y-m-d H:i:s');
-?>
 
 <!DOCTYPE html>
 <html lang="en">
